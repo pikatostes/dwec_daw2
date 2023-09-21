@@ -5,30 +5,28 @@
     <title>KC_EJ12</title>
   </head>
   <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
-  <script type="text/javascript">
-  		/*
-			KC_EJ12
-Crear un programa que reciba una letra e indique si es vocal o consonante.
+    <input type="text" name="letra" id="letra">
+    <input type="button" value="Buscar" onclick="vocalCons()">
+    <p id="res"></p>
+    <script type="text/javascript">
+      /*
+        KC_EJ12
+        Crear un programa que reciba una letra e indique si es vocal o consonante.
+      */
+      function vocalCons() {
+        let input = document.getElementById("letra");
+        let letra = input.value.trim().toUpperCase();
 
-  		*/
-  	    var letra = prompt("Introduce una letra:");
-       
-        if(letra.toUpperCase() === 'A' || 
-          letra.toUpperCase() === 'E' || 
-          letra.toUpperCase() === 'I' || 
-          letra.toUpperCase() === 'O' || 
-          letra.toUpperCase() === 'U') {
-            alert(letra + " es una vocal.");
-        }else{
-          if(isNaN(letra)){
-            alert(letra + " es una consonante.");
-          }else{
-            alert("Esa no es una letra");
+        if (letra.length === 1 && letra.match(/[A-Z]/)) {
+          if (letra === "A" || letra === "E" || letra === "I" || letra === "O" || letra === "U") {
+            document.getElementById("res").innerHTML = 'La letra es una: <span style="color: red;">vocal</span>';
+          } else {
+            document.getElementById("res").innerHTML = 'La letra es una: <span style="color: red;">consonante</span>';
           }
+        } else {
+          document.getElementById("res").innerHTML = 'Entrada inválida. Ingresa UNA sola LETRA del alfabeto.';
         }
-        
-  </script>
+      }
+    </script>
   </body>
 </html>

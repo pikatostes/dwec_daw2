@@ -5,15 +5,26 @@
     <title>KC_EJ14</title>
   </head>
   <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
-  <script type="text/javascript">
-  		/*
-			KC_EJ14
-      Crear un programa que reciba un texto y muestre su longitud
-  		*/
-    	var texto = prompt("Dame un texto para calcular su longitud");
-      alert("Longitud: " + texto.length);
-  </script>
+    <!-- El siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resultado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas, consulta a tu instructor de JS o a tu coach. -->
+    <h1>Introduce una cadena de texto</h1>
+    <input type="text" name="texto" id="texto">
+    <input type="button" value="Enviar" onclick="longitudTexto()">
+    <p id="res"></p>
+
+    <script type="text/javascript">
+      /*
+        KC_EJ14
+        Crear un programa que reciba un texto y muestre su longitud.
+      */
+
+      function longitudTexto() {
+        let text = document.getElementById("texto").value;
+        let longText = text.length;
+        document.getElementById("res").innerHTML =
+          'El texto tiene una longitud de: <span style="color: red;">' +
+          longText +
+          "</span>";
+      }
+    </script>
   </body>
 </html>

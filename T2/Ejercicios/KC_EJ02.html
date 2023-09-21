@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>KC_EJ02</title>
-  </head>
-  <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ02</title>
+</head>
+
+<body>
+  <!-- El siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resultado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas, consulta a tu instructor de JS o a tu coach. -->
+  <input type="text" name="num1" id="num1">
+  <input type="text" name="num2" id="num2">
+  <input type="button" value="calcular" onclick="calcNum()">
+  <div id="res"></div>
   <script type="text/javascript">
-    		/*
-    			KC_EJ02
-          Crea un programa que solicite dos números y muestre los resultados de todas sus operaciones aritméticas. 
-    		*/
-  	    
-    let num1 = parseInt(prompt("Número 1: "));
-    let num2 = parseInt(prompt("Número 2: "));
+    /*
+      KC_EJ02
+      Crea un programa que solicite dos números y muestre los resultados de todas sus operaciones aritméticas. 
+    */
 
-    let suma = num1 + num2;
-    let res = num1 - num2;
-    let mult = num1 * num2;
-    let div = num1 / num2;
+    function calcNum() {
+      let num1 = parseInt(document.getElementById("num1").value);
+      let num2 = parseInt(document.getElementById("num2").value);
 
-    document.write("<h1>hola mundo</h1>")
+      let suma = num1 + num2;
+      let res = num1 - num2;
+      let mult = num1 * num2;
+      let div = num1 / num2;
 
-    document.write("<p>" +num1 + " + " + num2 + " = " + suma + "</p>");
-    document.write("<p>" +num1 + " - " + num2 + " = " + res + "</p>");
-    document.write("<p>" +num1 + " * " + num2 + " = " + mult + "</p>");
-    document.write("<p>" +num1 + " / " + num2 + " = " + div + "</p>");
+      // Utiliza += para agregar resultados en lugar de sobrescribir
+      document.getElementById("res").innerHTML = "<p>" + num1 + " + " + num2 + " = " + suma + "</p>";
+      document.getElementById("res").innerHTML += "<p>" + num1 + " - " + num2 + " = " + res + "</p>";
+      document.getElementById("res").innerHTML += "<p>" + num1 + " * " + num2 + " = " + mult + "</p>";
+      document.getElementById("res").innerHTML += "<p>" + num1 + " / " + num2 + " = " + div + "</p>";
+    }
   </script>
-  </body>
+</body>
+
 </html>
