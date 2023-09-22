@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>KC_EJ21</title>
-  </head>
-  <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ21</title>
+</head>
+
+<body>
+  <h1>Introduzca un número para mostrar su tabla de multiplicar</h1>
+  <input type="text" name="num" id="num">
+  <input type="button" value="Mostrar" onclick="mostrarTablas()">
+  <p id="res"></p>
   <script type="text/javascript">
-  		/*
-			KC_EJ21
-      Crear un programa que reciba un número natural entero y muestre su tabla de multiplicar del 1 al 10.
-  		*/
-  	 var numero = parseInt(prompt("Dame un número para mostrar su tabla de multiplicar:"));
-        
-        
-     for(i=1; i<=10; i++) {
-        document.write(numero + "x" + i + "=" + numero*i + "<br/>");
+    /*
+    KC_EJ21
+    Crear un programa que reciba un número natural entero y muestre su tabla de multiplicar del 1 al 10.
+    */
+
+    function mostrarTablas() {
+      let num = parseInt(document.getElementById("num").value);
+      let tabla = [];
+
+      if (isNaN(num) || num <= 0 || num % 1 !== 0) {
+        document.getElementById("res").innerHTML = "El número introducido no es válido";
+      } else {
+        let resultado = "";
+        for (let index = 1; index <= 10; index++) {
+          let res = num * index;
+          resultado += `${num} * ${index} = ${res}<br>`;
+        }
+        document.getElementById("res").innerHTML = resultado;
       }
-        
-        
+    }
   </script>
-  </body>
+</body>
+
 </html>

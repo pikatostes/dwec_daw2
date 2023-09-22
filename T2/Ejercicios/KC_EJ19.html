@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>KC_EJ19</title>
-  </head>
-  <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ19</title>
+</head>
+
+<body>
+  <h1>Ingresa 10 números separados por comas</h1>
+  <input type="text" id="numeros" placeholder="Ejemplo: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20">
+  <input type="button" value="Mostrar Pares" onclick="mostrarPares()">
+
+  <p>Números pares ingresados:</p>
+  <div id="resultado"></div>
+
   <script type="text/javascript">
-  		/*KC_EJ19
-      Crear un programa que almacene 10 números dados por el usuario y muestre únicamente los pares.
-  		*/
-      var mensaje = "Son pares: "
-        for(i=0; i<10; i++) {
-            var valor = parseInt(prompt("Dame un número (" + (i+1)+ "):"));
-            if(valor % 2 == 0) {
-                mensaje += valor + ", "
-            }
-        }
+    /*KC_EJ19
+    Crear un programa que almacene 10 números dados por el usuario y muestre únicamente los pares.
+    */
 
-        alert(mensaje.slice(0, -2));
-        
-        //opción: Crear un arrego y meter los pares con push()
+    function mostrarPares() {
+      let numeros = document.getElementById("numeros").value;
+      let numerosArray = numeros.split(",").map(numero => parseInt(numero.trim()));
 
+      let numerosPares = numerosArray.filter(numero => !isNaN(numero) && numero % 2 === 0);
+
+      document.getElementById("resultado").innerHTML = numerosPares.join(", ");
+    }
   </script>
-  </body>
+</body>
+
 </html>

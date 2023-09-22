@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>KC_EJ04</title>
-  </head>
-  <body>
-  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
-  -->
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ04</title>
+</head>
+
+<body>
+  <input type="text" name="nota" id="nota1">
+  <input type="text" name="nota" id="nota2">
+  <input type="text" name="nota" id="nota3">
+  <input type="button" value="Calcular" onclick="calcMedia()">
+  <p id="res"></p>
   <script type="text/javascript">
-  		/*
-        KC_EJ04
-        Crea un programa que solicite tres notas y muestre su media.
-  		*/
+    /*
+      KC_EJ04
+      Crea un programa que solicite tres notas y muestre su media.
+    */
+    function calcMedia() {
 
-  	  let nota1 = parseInt(prompt("Introduce la primera nota: "))
-      let nota2 = parseInt(prompt("Introduce la segunda nota: "))
-      let nota3 = parseInt(prompt("Introduce la tercera nota: "))
+      let nota1 = parseInt(document.getElementById("nota1").value);
+      let nota2 = parseInt(document.getElementById("nota2").value);
+      let nota3 = parseInt(document.getElementById("nota3").value);
 
-      let media = (nota1+nota2+nota3)/3
+      let media = (nota1 + nota2 + nota3) / 3;
 
-      document.write("La nota media es " +media)
+      document.getElementById("res").innerHTML = "La media de las tres notas es: " + media;
+    }
   </script>
-  </body>
+</body>
+
 </html>
