@@ -1,0 +1,23 @@
+/* Estilo para el contenedor principal */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilo para elementos internos */
+.container {
+    text-align: center; /* Centrar el texto dentro de los elementos */
+    margin: 10px; /* Espacio entre elementos */
+    padding: 20px; /* Espacio interior de los elementos */
+    border: 1px solid #ccc; /* Borde para resaltar elementos */
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 10px;
+}
