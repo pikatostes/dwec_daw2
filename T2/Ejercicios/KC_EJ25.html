@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ25</title>
+</head>
+
+<body>
+  <h1>Adivina el número del 1 al 100</h1>
+  <input type="number" name="num" id="num">
+  <input type="button" value="Adivinar" onclick="guessNum()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+    Crear un programa que contenga un número aleatorio del 1 al 100, sin mostrarlo, y permitir que el usuario intente adivinarlo.
+    El usuario solamente tendrá 5 oportunidades,
+    en cada oportunidad fallida se le darán pistas para saber si debe intentar con un número mayor o menor.
+    */
+
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+    let oportunidades = 5; // Cambiado a 5 oportunidades
+
+    function guessNum() {
+      let num = parseInt(document.getElementById("num").value);
+
+      if (isNaN(num) || num < 1 || num > 100) {
+        document.getElementById("res").innerHTML = "Introduce un número válido del 1 al 100.";
+        return;
+      }
+
+      if (oportunidades > 0) {
+        if (num > randomNum) {
+          document.getElementById("res").innerHTML = "Prueba con un número más pequeño.";
+        } else if (num < randomNum) {
+          document.getElementById("res").innerHTML = "Prueba con un número más grande.";
+        } else {
+          document.getElementById("res").innerHTML = "¡ENHORABUENA! Has acertado. El número era: " + randomNum;
+          document.getElementById("num").disabled = true; // Deshabilitar el campo de entrada después de adivinar correctamente
+          return;
+        }
+        oportunidades--; // Reducir las oportunidades
+      }
+
+      if (oportunidades == 0) {
+        document.getElementById("res").innerHTML = "¡Te has quedado sin oportunidades! El número era: " + randomNum;
+        document.getElementById("num").disabled = true; // Deshabilitar el campo de entrada si se quedó sin oportunidades
+      }
+    }
+  </script>
+</body>
+
+</html>

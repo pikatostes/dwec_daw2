@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ18</title>
+</head>
+
+<body>
+  <h1>Introduzca un numero: </h1>
+  <input type="text" name="num" id="num">
+  <input type="button" value="Mostrar" onclick="mostrarNums()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+    KC_EJ18
+    Crear un programa que muestre los números naturales del 1 al N, donde N será dado por el usuario.
+    */
+
+    function mostrarNums() {
+      let ans = parseInt(document.getElementById("num").value);
+      let nums = [];
+
+      for (let i = 1; i <= ans; i++) {
+        nums.push(i);
+      }
+
+      document.getElementById("res").innerHTML = nums.toString();
+    }
+  </script>
+</body>
+
+</html>

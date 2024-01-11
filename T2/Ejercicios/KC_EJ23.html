@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KC_EJ23</title>
+  </head>
+  <body>
+    <h1>Calificaciones de Personas</h1>
+    <p>Escribe el nombre y las calificaciones de las personas. Escribe "terminar" para calcular las medias.</p>
+    <textarea id="inputArea" rows="5" cols="30"></textarea>
+    <input type="button" value="Calcular Medias" onclick="calcularMedias()">
+    <p id="result"></p>
+    <script type="text/javascript">
+      /*
+      Crear un programa que reciba el nombre y las calificaciones de N personas, mientras que el usuario no escriba “terminar”.
+      Al terminar deberá mostrar la media de calificaciones de cada persona.
+      */
+
+      function calcularMedias() {
+        const inputText = document.getElementById("inputArea").value;
+        const lines = inputText.split('\n');
+        let results = "";
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i].trim(); // Eliminar espacios en blanco al principio y al final
+
+          if (line.toLowerCase() === "terminar") {
+            break; // Salir del bucle si se escribe "terminar"
+          }
+
+          const parts = line.split(' ');
+          const nombre = parts[0];
+          const calificaciones = parts.slice(1).map(Number); // Convertir calificaciones a números
+
+          if (isNaN(calificaciones[0])) {
+            results += `Las calificaciones de ${nombre} no son válidas. Deben ser números.\n`;
+            continue; // Pasar a la siguiente línea si las calificaciones no son válidas
+          }
+
+          const media = calcularMedia(calificaciones);
+          results += `La media de calificaciones de ${nombre} es: ${media}\n`;
+        }
+
+        document.getElementById("result").textContent = results;
+      }
+
+      function calcularMedia(calificaciones) {
+        const suma = calificaciones.reduce((total, calificacion) => total + calificacion, 0);
+        const media = suma / calificaciones.length;
+        return media.toFixed(2); // Redondear la media a 2 decimales
+      }
+    </script>
+  </body>
+</html>

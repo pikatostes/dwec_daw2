@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ21</title>
+</head>
+
+<body>
+  <h1>Introduzca un número para mostrar su tabla de multiplicar</h1>
+  <input type="text" name="num" id="num">
+  <input type="button" value="Mostrar" onclick="mostrarTablas()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+    KC_EJ21
+    Crear un programa que reciba un número natural entero y muestre su tabla de multiplicar del 1 al 10.
+    */
+
+    function mostrarTablas() {
+      let num = parseInt(document.getElementById("num").value);
+      let tabla = [];
+
+      if (isNaN(num) || num <= 0 || num % 1 !== 0) {
+        document.getElementById("res").innerHTML = "El número introducido no es válido";
+      } else {
+        let resultado = "";
+        for (let index = 1; index <= 10; index++) {
+          let res = num * index;
+          resultado += `${num} * ${index} = ${res}<br>`;
+        }
+        document.getElementById("res").innerHTML = resultado;
+      }
+    }
+  </script>
+</body>
+
+</html>

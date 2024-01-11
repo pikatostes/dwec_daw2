@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS_EJ01</title>
+  </head>
+  <body>
+  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
+  -->
+  <h1>Introduce 3 notas</h1>
+
+  <input type="text" name="nota" id="nota1">
+  <input type="text" name="nota" id="nota2">
+  <input type="text" name="nota" id="nota3">
+  <input type="submit" value="Enviar" onclick="calcularMedia()">
+  <script type="text/javascript">
+  		/*
+			KC_EJ07
+      Crea un programa que solicite tres notas y calcule su media. Dependiendo del valor de la media, mostrará si el resultado es Apto o No Apto.
+  		*/
+
+      function calcularMedia() {
+        let nota1 = parseInt(document.getElementById("nota1").value);
+        let nota2 = parseInt(document.getElementById("nota2").value);
+        let nota3 = parseInt(document.getElementById("nota3").value);
+
+        let media = parseFloat((nota1+nota2+nota3)/3);
+
+        if (media >= 5) {
+          document.write("Usted es apto");
+        } else {
+          document.write("Usted no es apto");
+        }
+      }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ03</title>
+</head>
+
+<body>
+  <!--La siguiente código presenta una opción de solución mínima viable usando las entradas/salidas de JS por cliente: prompt y alert. Sin embargo, el mismo resutado puede ser alcanzado usando controles input, eventos y DOM, o JQuery, o un enfoque funcional. Utiliza con el que prefieras practicar. Si tienes dudas consulta a tu instructor de JS o a tu coach. 
+  -->
+  <input type="text" name="euro" id="euro">
+  <input type="button" value="calcular" onclick="calcEur()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+      KC_EJ03
+      Crea un programa que solicite una cantidad en Euros y muestre su equivalente en USD.
+    */
+
+    function calcEur() {
+      let euro = parseInt(document.getElementById("euro").value);
+
+      let dolares = euro * 1.07;
+
+      document.getElementById("res").innerHTML = 'EUR a USD: <span style="color: red;">' + dolares + '</span>';
+    }
+  </script>
+</body>
+
+</html>

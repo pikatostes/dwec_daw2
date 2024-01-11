@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ17</title>
+</head>
+
+<body>
+  <input type="text" name="ans" id="ans">
+  <input type="button" value="Buscar" onclick="searchEmail()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+    KC_EJ17
+    Crear un programa que contenga un directorio con nombres y correos electrónicos. 
+    Solicitar el nombre de una persona y mostrar su correo electrónico. 
+    Indicar con un mensaje apropiado cuando no se encuentre un resultado válido.
+    */
+
+    let nameEmail = {
+      "Alex": "alex@example.com",
+      "Paula": "paula@example.com",
+      "Lucía": "lucia@example.com",
+      "Pepe": "pepe@example.com",
+      "Sandra": "sandra@example.com"
+    };
+
+    function searchEmail() {
+      let name = document.getElementById("ans").value;
+      let res = document.getElementById("res");
+
+      if (name in nameEmail) {
+        res.innerHTML = 'El correo electrónico de ' + name + ' es: ' + nameEmail[name];
+      } else {
+        res.innerHTML = 'No se encontró un resultado válido para ' + name;
+      }
+    }
+  </script>
+</body>
+
+</html>

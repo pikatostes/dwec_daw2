@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Operaciones con Array</title>
+</head>
+
+<body>
+     <h1>Array de Números</h1>
+     <div id="output"></div>
+     <button onclick="insertarAlFinal()">Insertar al Final</button>
+     <button onclick="insertarAlPrincipio()">Insertar al Principio</button>
+     <button onclick="borrarPrimerElemento()">Borrar Primer Elemento</button>
+     <button onclick="borrarUltimoElemento()">Borrar Último Elemento</button>
+     <button onclick="ordenarAscendentemente()">Ordenar Ascendentemente</button>
+     <button onclick="ordenarDescendentemente()">Ordenar Descendentemente</button>
+     <script>
+          const numbersArray = [];
+
+          function mostrarArray() {
+               const outputDiv = document.getElementById("output");
+               outputDiv.innerHTML = `Array: [${numbersArray.join(', ')}]`;
+          }
+
+          function insertarAlFinal() {
+               const randomNumber = Math.floor(Math.random() * 1000) + 1;
+               numbersArray.push(randomNumber);
+               mostrarArray();
+          }
+
+          function insertarAlPrincipio() {
+               const randomNumber = Math.floor(Math.random() * 1000) + 1;
+               numbersArray.unshift(randomNumber);
+               mostrarArray();
+          }
+
+          function borrarPrimerElemento() {
+               numbersArray.shift();
+               mostrarArray();
+          }
+
+          function borrarUltimoElemento() {
+               numbersArray.pop();
+               mostrarArray();
+          }
+
+          function ordenarAscendentemente() {
+               numbersArray.sort((a, b) => a - b);
+               mostrarArray();
+          }
+
+          function ordenarDescendentemente() {
+               numbersArray.sort((a, b) => b - a);
+               mostrarArray();
+          }
+
+          // Inicializar la página mostrando el array vacío
+          mostrarArray();
+
+     </script>
+</body>
+
+</html>

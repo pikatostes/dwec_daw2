@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ16</title>
+</head>
+
+<body>
+  <h1>Introduzca un índice de la lista de nombres</h1>
+  <input type="text" name="index" id="index">
+  <input type="button" value="Mostrar" onclick="showIndex()">
+  <p id="res"></p>
+  <script type="text/javascript">
+    /*
+    KC_EJ16
+    Crear un programa que contenga una Lista de nombres. 
+    Solicitar un índice de la lista y mostrar el valor del índice. 
+    El programa deberá validar que el índice es válido.
+    */
+
+    let nombres = ["Alex", "Paula", "Lucía", "Pepe", "Sandra"];
+
+    function showIndex() {
+      let ans = parseInt(document.getElementById("index").value);
+
+      if (ans >= 0 && ans < nombres.length) {
+        document.getElementById("res").innerHTML = 'El nombre en el índice ' + ans + ' es: ' + nombres[ans];
+      } else {
+        document.getElementById("res").innerHTML = 'El índice no es válido';
+      }
+    }
+  </script>
+</body>
+
+</html>

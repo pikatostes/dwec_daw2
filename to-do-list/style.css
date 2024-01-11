@@ -1,0 +1,57 @@
+/* styles.css */
+body {
+     font-family: Arial, sans-serif;
+     background-color: #f0f0f0;
+     text-align: center;
+     margin: 0;
+     padding: 0;
+}
+
+h1 {
+     color: #333;
+}
+
+#taskList {
+     list-style: none;
+     padding: 0;
+}
+
+.task-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+li {
+     background-color: #fff;
+     border: 1px solid #ddd;
+     padding: 10px;
+     margin: 10px 0;
+}
+
+li button {
+     background-color: #ff5555;
+     color: #fff;
+     border: none;
+     padding: 5px 10px;
+     cursor: pointer;
+}
+
+input[type="text"] {
+     width: 70%;
+     padding: 10px;
+     border: 1px solid #ddd;
+     border-radius: 3px;
+     grid-area: "input";
+}
+
+#addTask {
+     background-color: #333;
+     color: #fff;
+     border: none;
+     padding: 10px 20px;
+     cursor: pointer;
+     grid-area: addTask;
+     min-height: 60px;
+     max-width: 150px;
+}

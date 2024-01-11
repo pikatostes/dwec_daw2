@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>KC_EJ19</title>
+</head>
+
+<body>
+  <h1>Ingresa 10 números separados por comas</h1>
+  <input type="text" id="numeros" placeholder="Ejemplo: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20">
+  <input type="button" value="Mostrar Pares" onclick="mostrarPares()">
+
+  <p>Números pares ingresados:</p>
+  <div id="resultado"></div>
+
+  <script type="text/javascript">
+    /*KC_EJ19
+    Crear un programa que almacene 10 números dados por el usuario y muestre únicamente los pares.
+    */
+
+    function mostrarPares() {
+      let numeros = document.getElementById("numeros").value;
+      let numerosArray = numeros.split(",").map(numero => parseInt(numero.trim()));
+
+      let numerosPares = numerosArray.filter(numero => !isNaN(numero) && numero % 2 === 0);
+
+      document.getElementById("resultado").innerHTML = numerosPares.join(", ");
+    }
+  </script>
+</body>
+
+</html>
