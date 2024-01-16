@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    p {
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+  <title>Manejo de Elementos</title>
+</head>
+<body>
+
+<p onclick="ocultarMostrar(this)" ondblclick="eliminarElemento(this)">Elemento 1</p>
+<p onclick="ocultarMostrar(this)" ondblclick="eliminarElemento(this)">Elemento 2</p>
+<p onclick="ocultarMostrar(this)" ondblclick="eliminarElemento(this)">Elemento 3</p>
+
+<button onclick="reaparecerElementos()">Reaparecer</button>
+
+<script src="e14.js"></script>
+</body>
+</html>
