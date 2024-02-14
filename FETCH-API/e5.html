@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información de Usuario y Imagen</title>
+</head>
+<body>
+
+  <h1>Información de Usuario y Imagen</h1>
+  <div id="user-info"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const userInfoContainer = document.getElementById('user-info');
+
+      fetch('https://randomuser.me/api/')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Muestra la información de usuario
+          const user = data.results[0];
+          const userName = `${user.name.first} ${user.name.last}`;
+          userInfoContainer.innerHTML = `
+            <p>Primer Nombre: ${user.name.first}</p>
+            <p>Segundo Nombre: ${user.name.last}</p>
+          `;
+
+          // Cargar la imagen correspondiente según el género
+          const gender = user.gender.toLowerCase();
+          const imageSrc = gender === 'male' ? 'hombre.png' : 'mujer.png';
+
+          // Crear y agregar la imagen al contenedor
+          const userImage = document.createElement('img');
+          userImage.src = imageSrc;
+          userImage.alt = 'Imagen de usuario';
+          userInfoContainer.appendChild(userImage);
+        })
+        .catch(error => {
+          console.error('Error al obtener datos de usuario:', error.message);
+        });
+    });
+  </script>
+
+</body>
+</html>

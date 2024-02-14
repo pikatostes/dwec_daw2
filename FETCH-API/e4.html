@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Usuario por ID</title>
+  <!-- Agrega el enlace a Bootstrap CSS para mejorar el diseño -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <h1>Consulta de Usuario por ID</h1>
+
+    <!-- Formulario -->
+    <form id="userForm">
+      <div class="form-group">
+        <label for="userId">ID del Usuario:</label>
+        <input type="number" class="form-control" id="userId" required>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="getUserById()">Obtener Usuario</button>
+    </form>
+
+    <hr>
+
+    <!-- Resultados -->
+    <div id="userDetails"></div>
+  </div>
+
+  <!-- Agrega los scripts de Bootstrap y tu lógica JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    function getUserById() {
+      // Obtiene el valor del ID del usuario
+      const userId = document.getElementById('userId').value;
+
+      // Realiza la solicitud a la API
+      fetch(`https://jsonplaceholder.typicode.com/users?id=${userId}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Muestra los detalles del usuario en el contenedor
+          const userDetailsContainer = document.getElementById('userDetails');
+          userDetailsContainer.innerHTML = `
+            <h2>Detalles del Usuario</h2>
+            <p>ID: ${data[0].id}</p>
+            <p>Nombre: ${data[0].name}</p>
+            <p>Usuario: ${data[0].username}</p>
+            <p>Email: ${data[0].email}</p>
+            <!-- Agrega más campos según tus necesidades -->
+          `;
+        })
+        .catch(error => {
+          console.error('Error al obtener datos del usuario:', error.message);
+        });
+    }
+  </script>
+</body>
+</html>

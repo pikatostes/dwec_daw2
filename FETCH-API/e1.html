@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+
+    <h1>Personajes de Star Wars</h1>
+    <ul id="people-list"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const peopleList = document.getElementById('people-list');
+
+            fetch('https://swapi.dev/api/people/')
+                .then(response => response.json())
+                .then(data => {
+                    // Recorre los resultados y agrega elementos a la lista
+                    data.results.forEach(person => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `Nombre: ${person.name}, Género: ${person.gender}, Altura: ${person.height} cm`;
+                        peopleList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al obtener datos:', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
