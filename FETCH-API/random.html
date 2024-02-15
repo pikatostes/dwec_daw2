@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Palabras</title>
+</head>
+<body>
+
+<h1>Generador de Palabras</h1>
+
+<button onclick="generarPalabra()">Generar Palabra</button>
+<p id="resultado"></p>
+
+<script>
+    const vocales = ['a', 'e', 'i', 'o', 'u'];
+    const consonantes = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+
+    function obtenerAleatorio(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function generarSílaba() {
+        const consonante = obtenerAleatorio(consonantes);
+        const vocal = obtenerAleatorio(vocales);
+
+        return Math.random() < 0.5 ? consonante + vocal : vocal + consonante;
+    }
+
+    function generarPalabra() {
+        const longitudPalabra = Math.floor(Math.random() * 6) + 2; // Longitud de la palabra entre 2 y 5 sílabas
+        let palabraGenerada = '';
+
+        for (let i = 0; i < longitudPalabra; i++) {
+            palabraGenerada += generarSílaba();
+        }
+
+        const resultado = document.getElementById("resultado");
+        resultado.textContent = `Palabra generada: ${palabraGenerada}`;
+    }
+</script>
+
+</body>
+</html>
